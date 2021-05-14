@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Test app</h1>
+
+<form th:method="GET" th:action="@{/parse}">
+    <input type="submit" value="Parse"/>
+</form>
+
+<form th:method="GET" th:action="@{/show}">
+    <input type="submit" value="Show"/>
+
+    <table>
+        <tr>
+            <th>currency</th>
+            <th>value</th>
+        </tr>
+        <tr th:each = "currency: ${currencies}">
+            <td th:text="${currency.getCurrencyName()}"></td>
+            <td th:text="${currency.getCurrencyValue()}"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
