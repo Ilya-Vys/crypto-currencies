@@ -8,6 +8,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.domain.Persistable;
 
+import java.math.BigDecimal;
+
 
 @Getter
 @Setter
@@ -17,10 +19,10 @@ public class CryptoCurrency implements Persistable<String> {
 
     @Id
     private final String currencyName;
-    private final double currencyValue;
+    private final BigDecimal currencyValue;
 
     @PersistenceConstructor
-    public CryptoCurrency(String currencyName, double currencyValue) {
+    public CryptoCurrency(String currencyName, BigDecimal currencyValue) {
         this.currencyName = currencyName;
         this.currencyValue = currencyValue;
     }

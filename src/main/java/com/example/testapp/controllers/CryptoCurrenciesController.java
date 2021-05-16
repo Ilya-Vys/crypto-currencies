@@ -11,27 +11,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class CryptoCurrenciesController {
 
-    private final CryptoCurrenciesService service;
+    private final CryptoCurrenciesService currenciesService;
 
-    public CryptoCurrenciesController(CryptoCurrenciesService service) {
-        this.service = service;
+    public CryptoCurrenciesController(CryptoCurrenciesService currenciesService) {
+        this.currenciesService = currenciesService;
     }
 
     @GetMapping()
-    public String index(Model model){
-        model.addAttribute("model", "Model");
+    public String index(){
         return "index";
     }
 
     @GetMapping("parse")
-    public String parse(Model model) throws IllegalAccessException {
-        service.saveData();
+    public String parse() throws IllegalAccessException {
+        currenciesService.saveData();
         return "index";
     }
 
     @GetMapping("show")
     public String show(Model model) {
-        model.addAttribute("currencies" ,service.getData());
+        model.addAttribute("currencies" , currenciesService.getData());
         return "index";
     }
 

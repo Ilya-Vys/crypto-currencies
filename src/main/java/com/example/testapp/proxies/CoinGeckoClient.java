@@ -1,7 +1,7 @@
 package com.example.testapp.proxies;
 
 
-import com.example.testapp.entities.CryptoCurrenciesData;
+import com.example.testapp.dto.CryptoCurrenciesDTO;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @org.springframework.cloud.openfeign.FeignClient(name = "Client",
@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.GetMapping;
 public interface CoinGeckoClient {
 
     @GetMapping(produces = "application/json")
-    CryptoCurrenciesData getAndParseJson();
+    CryptoCurrenciesDTO getAndParseJson();
 }
